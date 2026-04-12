@@ -1,0 +1,10 @@
+{
+    "name": "SocialLens — GPS חברתי",
+    "short_name": "SocialLens",
+    "description": "מערכת עזר ויזואלית להנגשת סיטואציות חברתיות",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F8F9FA",
+    "theme_color": "#1CB0F6",
+    "orientation": "portrait"
+}
