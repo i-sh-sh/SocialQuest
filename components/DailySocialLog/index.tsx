@@ -1,11 +1,13 @@
 'use client'
-import { LogEntry, EMOTION_COLORS, EMOTIONS, EmotionType } from '@/lib/types'
+import type { LogEntry, EmotionType } from '@/lib/types'
+import { EMOTION_COLORS, EMOTIONS } from '@/lib/constants'
+import { emotionToWeather } from '@/lib/engine'
 import { MiniHalo } from '@/components/SocialHalo'
-import { WeatherBadge, emotionToWeather } from '@/components/MoodWeather'
+import { WeatherBadge } from '@/components/MoodWeather'
 import { FadingBar } from '@/components/FadingManager'
 
 export function DaySummary({ entries, date = new Date() }: { entries: LogEntry[]; date?: Date }) {
-    const counts = { approachable: 0, caution: 0, intense: 0, calm: 0 } as Record<EmotionType, number>
+    const counts = { approachable: 0, caution: 0, intense: 0, calm: 0, sarcasm: 0, shy: 0 } as Record<EmotionType, number>
     entries.forEach(e => counts[e.emotion]++)
     const dominant = (Object.keys(counts) as EmotionType[]).reduce((a, b) => counts[a] > counts[b] ? a : b, 'calm' as EmotionType)
     const avgFading = entries.length ? entries.reduce((s, e) => s + e.fadingLevel, 0) / entries.length : 0

@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { AppProvider } from '@/context/AppContext'
+import { AchievementToast } from '@/components/AchievementToast'
 
 export const metadata: Metadata = {
     title: 'SocialLens — GPS חברתי',
@@ -19,7 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
             </head>
             <body>
-                <div className="min-h-dvh flex flex-col">{children}</div>
+                <AppProvider>
+                    <AchievementToast />
+                    <div className="min-h-dvh flex flex-col">{children}</div>
+                </AppProvider>
             </body>
         </html>
     )

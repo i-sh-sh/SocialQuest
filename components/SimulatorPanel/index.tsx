@@ -1,14 +1,6 @@
 'use client'
-import { EmotionType, EMOTION_COLORS } from '@/lib/types'
-
-const SCENARIOS = [
-    { label: 'חבר שמח', icon: '🤗', emotion: 'approachable' as EmotionType, intensity: 0.85, description: 'חבר רוצה לשחק איתך' },
-    { label: 'דיבור בציניות', icon: '😏', emotion: 'caution' as EmotionType, intensity: 0.65, description: 'המורה אמרה "כל הכבוד" בנימה מיוחדת' },
-    { label: 'שיחה רגועה', icon: '😌', emotion: 'calm' as EmotionType, intensity: 0.40, description: 'שיחה סתמית על מה אכלת היום' },
-    { label: 'ויכוח', icon: '😤', emotion: 'intense' as EmotionType, intensity: 0.90, description: 'ילד כועס על תוצאת המשחק' },
-    { label: 'שמחה עצומה', icon: '🎉', emotion: 'approachable' as EmotionType, intensity: 0.99, description: 'חברה נרגשת שזכתה בפרס' },
-    { label: 'עצב שקט', icon: '😔', emotion: 'calm' as EmotionType, intensity: 0.55, description: 'ילד שלא מדבר הרבה אחרי הפסקה' },
-]
+import type { EmotionType } from '@/lib/types'
+import { EMOTION_COLORS, SCENARIOS } from '@/lib/constants'
 
 export function SimulatorPanel({ activeEmotion, activeIntensity, onSelect }:
     { activeEmotion: EmotionType; activeIntensity: number; onSelect: (e: EmotionType, i: number) => void }) {

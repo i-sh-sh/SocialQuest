@@ -1,5 +1,7 @@
 'use client'
-import { MoodWeatherType, WEATHER_DEFS, EmotionType } from '@/lib/types'
+import type { MoodWeatherType, EmotionType } from '@/lib/types'
+import { WEATHER_DEFS } from '@/lib/constants'
+import { emotionToWeather } from '@/lib/engine'
 
 export function MoodWeather({ weatherType, participantCount = 1, roomName = 'החדר', fadeOpacity = 1 }:
     { weatherType: MoodWeatherType; participantCount?: number; roomName?: string; fadeOpacity?: number }) {
@@ -28,14 +30,7 @@ export function MoodWeather({ weatherType, participantCount = 1, roomName = 'ה�
     )
 }
 
-export function emotionToWeather(emotion: EmotionType): MoodWeatherType {
-    switch (emotion) {
-        case 'approachable': return 'sunny'
-        case 'calm': return 'partly-cloudy'
-        case 'caution': return 'cloudy'
-        case 'intense': return 'stormy'
-    }
-}
+export { emotionToWeather }
 
 export function WeatherBadge({ weatherType, size = 'md' }: { weatherType: MoodWeatherType; size?: 'sm' | 'md' }) {
     const def = WEATHER_DEFS[weatherType]

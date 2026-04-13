@@ -1,5 +1,6 @@
 'use client'
-import { EmotionType, EMOTION_COLORS } from '@/lib/types'
+import type { EmotionType } from '@/lib/types'
+import { EMOTION_COLORS } from '@/lib/constants'
 
 const SIZE_MAP = {
     sm: { outer: 104, mid: 88, inner: 72 },

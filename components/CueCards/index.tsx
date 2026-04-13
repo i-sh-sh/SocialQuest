@@ -1,28 +1,8 @@
 'use client'
-import { EmotionType, EMOTION_COLORS, EMOTIONS } from '@/lib/types'
-
-const CUE_CONTENT: Record<EmotionType, { icon: string; title: string; body: string }[]> = {
-  approachable: [
-    { icon: '👀', title: 'הבעת פנים', body: 'חיוך פתוח, עיניים מסתכלות ישר' },
-    { icon: '🗣️', title: 'טון דיבור', body: 'קול חם ונינוח, קצב שקט' },
-    { icon: '💬', title: 'מה זה אומר?', body: 'הוא/היא שמחים לדבר איתך עכשיו' },
-  ],
-  caution: [
-    { icon: '😏', title: 'הבעת פנים', body: 'חיוך מהצד, גבה מורמת' },
-    { icon: '🎭', title: 'טון דיבור', body: 'קול מנוגן, הדגשות מיוחדות' },
-    { icon: '💬', title: 'מה זה אומר?', body: 'ייתכן שמדברים בציניות — המילים לא תמיד ישירות' },
-  ],
-  intense: [
-    { icon: '😤', title: 'הבעת פנים', body: 'מצח מקומט, פה לחוץ' },
-    { icon: '📢', title: 'טון דיבור', body: 'קול מורם ומהיר, קצב לחוץ' },
-    { icon: '💬', title: 'מה זה אומר?', body: 'הרגשות חזקים כרגע — כדאי לחכות קצת' },
-  ],
-  calm: [
-    { icon: '😌', title: 'הבעת פנים', body: 'הבעה נייטרלית, שקטה' },
-    { icon: '🎵', title: 'טון דיבור', body: 'קול אחיד ושקט, קצב סדיר' },
-    { icon: '💬', title: 'מה זה אומר?', body: 'הוא/היא מדברים בצורה ישירה ורגועה' },
-  ],
-}
+import Link from 'next/link'
+import type { EmotionType } from '@/lib/types'
+import { EMOTION_COLORS, CUE_CONTENT } from '@/lib/constants'
+import { ResponseScripts } from '@/components/ResponseScripts'
 
 export function CueCards({ emotion, intensity, fadeOpacity }:
   { emotion: EmotionType; intensity: number; fadeOpacity: number }) {
@@ -45,6 +25,16 @@ export function CueCards({ emotion, intensity, fadeOpacity }:
           </div>
         ))}
       </div>
+
+      {/* Response scripts — what to say/do */}
+      <ResponseScripts emotion={emotion} />
+
+      {/* Practice Mode link */}
+      <Link href="/practice" id="link-practice-from-cue"
+        className="flex items-center justify-center gap-2 py-2.5 rounded-2xl text-xs font-bold border border-border text-text-secondary bg-surface hover:bg-surface-2 active:scale-95 transition-all">
+        🎮 תרגל זיהוי במצב אימון
+      </Link>
     </div>
   )
 }
+

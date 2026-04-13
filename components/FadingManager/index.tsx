@@ -1,14 +1,9 @@
 'use client'
-import { FadingState } from '@/lib/types'
+import type { FadingState } from '@/lib/types'
+import { FADING_STAGES } from '@/lib/constants'
+import { getFadingStage } from '@/lib/engine'
 
-const LEVELS = [
-    { range: [0, 0.2], label: 'מתחיל', description: 'צבעים מלאים — עזרה מלאה', icon: '🌈', color: '#58CC02' },
-    { range: [0.2, 0.4], label: 'לומד', description: 'צבעים חלקיים — מתחיל להבין', icon: '🌤️', color: '#1CB0F6' },
-    { range: [0.4, 0.6], label: 'מתקדם', description: 'רמזים עדינים — כמעט עצמאי', icon: '⭐', color: '#FFA500' },
-    { range: [0.6, 0.8], label: 'מיומן', description: 'רמז קטן בלבד', icon: '🏆', color: '#FF4B4B' },
-    { range: [0.8, 1.01], label: 'עצמאי!', description: 'ללא עזרה — מבין לבד!', icon: '🦋', color: '#8B5CF6' },
-]
-const getStage = (l: number) => LEVELS.find(s => l >= s.range[0] && l < s.range[1]) ?? LEVELS[0]
+const getStage = (l: number) => getFadingStage(l)
 
 export function FadingBar({ fadingState, compact = false }: { fadingState: FadingState; compact?: boolean }) {
     const stage = getStage(fadingState.level)
@@ -36,7 +31,7 @@ export function FadingBar({ fadingState, compact = false }: { fadingState: Fadin
             </div>
             {!compact && (
                 <div className="flex justify-between">
-                    {LEVELS.map((l, i) => {
+                    {FADING_STAGES.map((l, i) => {
                         const active = fadingState.level >= l.range[0]
                         return (
                             <div key={i} className="w-5 h-5 rounded-full flex items-center justify-center text-xs transition-all"
