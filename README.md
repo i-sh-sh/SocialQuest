@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SocialLens (SocialQuest) 🔍
 
 A real-world "social GPS" and interactive learning platform designed to help neurodivergent children context-read social situations, process emotions, and build long-term social independence.
@@ -71,7 +70,11 @@ A simulated AR-like interface providing immediate feedback on social cues.
 
 ## 🔒 Privacy & Data
 No backend interaction is required or provided. All profiles, log entries, and usage statistics are strictly resident on the machine where the application runs.
-=======
+
+---
+
+<div dir="rtl">
+
 # 🔍 SocialLens — GPS חברתי
 
 > *"כשכולם רואים את אותה המציאות — אנחנו מוסיפים לה צבע"*
@@ -152,4 +155,5 @@ SocialLens נולדה מתוך שאלה אחת פשוטה:
 ככל שהילד לומד לזהות את הרמז לבד — הצבעים דוהים בהדרגה.  
 עד שיום אחד הוא רואה את המציאות כמו שהיא, ללא תמיכה.
 
->>>>>>> 8cdb568c6ce9db2f7845d805deded9cbe3c2fc56
+
+</div>
